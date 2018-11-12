@@ -59,8 +59,17 @@ export const cummulativeSeperation = (counts, unitPadding, startPadding) => {
   const distances = new Array(totalCount);
   distances[0] = startPadding;
 
-  for (let index = 1; index < distances.length; index += 1) {
-    distances[index] = distances[index - 1] + unitPadding;
+  let j = 0;
+  let distanceIndex = 1;
+  let unit = unitPadding;
+  for (let i = 0; i < counts.length; i++) {
+    if (counts[i] < 5) {
+      unit = Math.round((unitPadding * 5) / counts[i]);
+    }
+    for (j = counts[i]; j > 0; j--) {
+      distances[distanceIndex] = distances[distanceIndex - 1] + unit;
+      distanceIndex++;
+    }
   }
   return distances;
 };
