@@ -1,8 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import { cummulativeSeperation } from '../helpers';
-import TimelineDot from './TimelineDot';
+import TimelineDot from "./TimelineDot";
 
 /**
  * The markup Information for all the events on the horizontal timeline.
@@ -10,28 +9,41 @@ import TimelineDot from './TimelineDot';
  * @param  {object} props The props from parent mainly styles
  * @return {StatelessFunctionalReactComponent} Markup Information for the fader
  */
-const EventsBar = ({ events, selectedIndex, styles, handleDateClick, labelWidth }) => (
-  <ol
-    className='events-bar'
-    style={{
-      listStyle: 'none'
-    }}
-  >
-    {events.map((event, index) =>
-      <TimelineDot
-        distanceFromOrigin={event.distance}
-        label={event.label}
-        date={event.date}
-        index={index}
-        key={index}
-        onClick={handleDateClick}
-        selected={selectedIndex}
-        styles={styles}
-        labelWidth={labelWidth}
-      />
-    )}
-  </ol>
-);
+const EventsBar = ({
+  events,
+  selectedIndex,
+  styles,
+  handleDateClick,
+  labelWidth,
+  isLastEventInvisible
+}) => {
+  let eventsToRender = events;
+  if (isLastEventInvisible) {
+    eventsToRender = eventsToRender.slice(0, events.length - 1);
+  }
+
+  return (
+    <ol
+      className="events-bar"
+      style={{
+        listStyle: "none"
+      }}
+    >
+      {eventsToRender.map((event, index) => (
+        <TimelineDot
+          distanceFromOrigin={event.distance}
+          label={event.label || ''}
+          index={index}
+          key={index}
+          onClick={handleDateClick}
+          selected={selectedIndex}
+          styles={styles}
+          labelWidth={labelWidth}
+        />
+      ))}
+    </ol>
+  );
+};
 
 /**
  * The styles that parent will provide
@@ -39,11 +51,13 @@ const EventsBar = ({ events, selectedIndex, styles, handleDateClick, labelWidth 
  */
 EventsBar.propTypes = {
   // Array containing the events
-  events: PropTypes.arrayOf(PropTypes.shape({
-    distance: PropTypes.number.isRequired,
-    label: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-  })).isRequired,
+  events: PropTypes.arrayOf(
+    PropTypes.shape({
+      distance: PropTypes.number.isRequired,
+      label: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired
+    })
+  ).isRequired,
   // The index of the selected event
   selectedIndex: PropTypes.number,
   // a handler for clicks on a datapoint
@@ -51,8 +65,7 @@ EventsBar.propTypes = {
   // The width you want the labels to be
   labelWidth: PropTypes.number.isRequired,
   // Custom styling
-  styles: PropTypes.object,
-}
-
+  styles: PropTypes.object
+};
 
 export default EventsBar;
