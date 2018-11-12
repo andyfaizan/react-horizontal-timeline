@@ -10,10 +10,7 @@ import EventsBar from "./EventsBar";
 
 // Helpers and constansts
 import {
-  zip,
-  daydiff,
-  cummulativeSeperation,
-  interimSeparation
+  cummulativeSeperation
 } from "../helpers";
 import Constants from "../Constants";
 
@@ -47,7 +44,9 @@ class HorizontalTimeline extends React.Component {
     const distances = cummulativeSeperation(
       values,
       props.unitPadding,
-      props.linePadding
+      props.linePadding,
+      props.minEventPadding,
+      props.maxEventPadding
     );
 
     const events = [];
@@ -138,8 +137,6 @@ HorizontalTimeline.defaultProps = {
   // --- EVENTS ---
   getLabel: defaultGetLabel,
   // --- POSITIONING ---
-  minEventPadding: Constants.MIN_EVENT_PADDING,
-  maxEventPadding: Constants.MAX_EVENT_PADDING,
   unitPadding: Constants.UNIT_PADDING,
   linePadding: Constants.TIMELINE_PADDING,
   labelWidth: Constants.UNIT_PADDING,
