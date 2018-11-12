@@ -5,8 +5,8 @@
 module.exports = {
   // Left and right are used to control the direciton in which we want to translate our
   // timeline
-  LEFT: 'left',
-  RIGHT: 'right',
+  LEFT: "left",
+  RIGHT: "right",
 
   // The keycodes of all the arrow keys (used for keyboard navigation)
   LEFT_KEY: 37,
@@ -22,6 +22,8 @@ module.exports = {
   MIN_EVENT_PADDING: 20,
   // Maximum padding between two event labels
   MAX_EVENT_PADDING: 120,
+  // Unit padding between two interim events
+  UNIT_PADDING: 30,
   // width of the area for text in the timeline
   DATE_WIDTH: 85,
   // Padding at end of timeline
@@ -29,7 +31,7 @@ module.exports = {
 
   // which events to trigger based on the left or the right arrow key on the keyboard is pressed
   KEYMAP: {
-    37: 'left',
-    39: 'right'
+    37: "left",
+    39: "right"
   }
 };

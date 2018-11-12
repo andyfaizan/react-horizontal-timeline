@@ -1,23 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 // Decorators
-import Radium from 'radium';
-import dimensions from 'react-dimensions';
+import Radium from "radium";
+import dimensions from "react-dimensions";
 
 // Components
-import EventsBar from './EventsBar';
+import EventsBar from "./EventsBar";
 
 // Helpers and constansts
-import {zip, daydiff, cummulativeSeperation} from '../helpers';
-import Constants from '../Constants';
+import {
+  zip,
+  daydiff,
+  cummulativeSeperation,
+  interimSeparation
+} from "../helpers";
+import Constants from "../Constants";
 
 /**
  * Default method to convert a date to a string label
  * @param {string} date The string representation of a date
  * @return {string} The formatted date string
  */
-const defaultGetLabel = (date, index) => (new Date(date)).toDateString().substring(4);
+const defaultGetLabel = (date, index) =>
+  new Date(date).toDateString().substring(4);
 
 /*
  * This is the Horizontal Timeline. This component expects an array of dates
@@ -26,7 +32,6 @@ const defaultGetLabel = (date, index) => (new Date(date)).toDateString().substri
  * clicked passing that index along
  */
 class HorizontalTimeline extends React.Component {
-
   render() {
     const props = this.props;
 
@@ -36,22 +41,23 @@ class HorizontalTimeline extends React.Component {
     }
 
     // Convert the date strings to actual date objects
-    const dates = props.values.map((value) => new Date(value));
+    const values = props.values;
+    
     // Calculate the distances for all events
     const distances = cummulativeSeperation(
-      dates,
-      props.labelWidth,
-      props.minEventPadding,
-      props.maxEventPadding,
-      props.linePadding,
+      values,
+      props.unitPadding,
+      props.linePadding
     );
 
-    // Convert the distances and dates to events
-    const events = distances.map((distance, index) => ({
-      distance,
-      label: props.getLabel(props.values[index], index),
-      date: props.values[index],
-    }));
+    const events = [];
+    let distanceIndex = 0;
+    for (let i = 0; i < values.length; i++) {
+      events.push({ distance: distances[distanceIndex++], label: this.props.labels[i] });
+      for (let j = 1; j < values[i]; j++) {
+        events.push({ distance: distances[distanceIndex++] });
+      }
+    }
 
     const visibleWidth = this.props.containerWidth - 80;
 
@@ -86,8 +92,7 @@ class HorizontalTimeline extends React.Component {
         barPaddingLeft={barPaddingLeft}
       />
     );
-  };
-
+  }
 }
 
 /**
@@ -99,7 +104,7 @@ HorizontalTimeline.propTypes = {
   // Selected index
   index: PropTypes.number,
   // Array containing the sorted date strings
-  values: PropTypes.arrayOf(PropTypes.string).isRequired,
+  values: PropTypes.array.isRequired,
   // Function that takes the index of the array as argument
   indexClick: PropTypes.func,
   // Function to calculate the label based on the date string
@@ -121,7 +126,7 @@ HorizontalTimeline.propTypes = {
   isOpenBeginning: PropTypes.bool,
   // --- INTERACTION ---
   isTouchEnabled: PropTypes.bool,
-  isKeyboardEnabled: PropTypes.bool,
+  isKeyboardEnabled: PropTypes.bool
 };
 
 /**
@@ -135,13 +140,14 @@ HorizontalTimeline.defaultProps = {
   // --- POSITIONING ---
   minEventPadding: Constants.MIN_EVENT_PADDING,
   maxEventPadding: Constants.MAX_EVENT_PADDING,
+  unitPadding: Constants.UNIT_PADDING,
   linePadding: Constants.TIMELINE_PADDING,
-  labelWidth: Constants.DATE_WIDTH,
+  labelWidth: Constants.UNIT_PADDING,
   // --- STYLING ---
   styles: {
-    outline: '#dfdfdf',
-    background: '#f8f8f8',
-    foreground: '#7b9d6f'
+    outline: "#dfdfdf",
+    background: "#f8f8f8",
+    foreground: "#7b9d6f"
   },
   fillingMotion: {
     stiffness: 150,
@@ -155,7 +161,7 @@ HorizontalTimeline.defaultProps = {
   isOpenBeginning: true,
   // --- INTERACTION ---
   isTouchEnabled: true,
-  isKeyboardEnabled: true,
+  isKeyboardEnabled: true
 };
 
-export default Radium(dimensions({elementResize: true})(HorizontalTimeline));
+export default Radium(dimensions({ elementResize: true })(HorizontalTimeline));

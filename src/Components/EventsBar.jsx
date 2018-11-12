@@ -242,8 +242,8 @@ EventsBar.propTypes = {
   height: PropTypes.number.isRequired,
   events: PropTypes.arrayOf(PropTypes.shape({
     distance: PropTypes.number.isRequired,
-    label: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
+    label: PropTypes.string,
+    date: PropTypes.string,
   })).isRequired,
   isTouchEnabled: PropTypes.bool.isRequired,
   totalWidth: PropTypes.number.isRequired,
