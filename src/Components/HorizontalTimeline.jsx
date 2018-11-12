@@ -109,6 +109,8 @@ HorizontalTimeline.propTypes = {
   // Function to calculate the label based on the date string
   getLabel: PropTypes.func,
   // --- POSITIONING ---
+  // the unit padding between pages
+  unitPadding: PropTypes.number,
   // the minimum padding between events
   minEventPadding: PropTypes.number,
   // The maximum padding between events
