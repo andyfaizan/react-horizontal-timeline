@@ -18,12 +18,8 @@ module.exports = {
   DAY: 86400000,
   // Total length of the timeline in pixels
   MIN_TIMELINE_WIDTH: 750,
-  // Minimum padding between two event labels
-  MIN_EVENT_PADDING: 20,
-  // Maximum padding between two event labels
-  MAX_EVENT_PADDING: 120,
   // Unit padding between two interim events
-  UNIT_PADDING: 30,
+  UNIT_PADDING: 50,
   // width of the area for text in the timeline
   DATE_WIDTH: 85,
   // Padding at end of timeline
@@ -33,5 +29,7 @@ module.exports = {
   KEYMAP: {
     37: "left",
     39: "right"
-  }
+  },
+  MIN_PADDING_COUNT: 5,
+  MAX_PADDING_COUNT: 10
 };

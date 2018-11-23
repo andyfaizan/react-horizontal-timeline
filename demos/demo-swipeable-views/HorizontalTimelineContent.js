@@ -14,8 +14,9 @@ export default class HorizontalTimelineContent extends React.Component {
       showConfigurator: false,
 
       // timelineConfig
-      minEventPadding: 20,
-      maxEventPadding: 120,
+      minEventPadding: 120,
+      maxEventPadding: 240,
+      unitPadding: 50,
       linePadding: 100,
       labelWidth: 100,
       fillingMotionStiffness: 150,
@@ -66,7 +67,7 @@ export default class HorizontalTimelineContent extends React.Component {
         />
       );
     }
-    const counts = [2, 2, 3, 4, 5];
+    const counts = [2, 2, 3, 11, 5];
     const labels = [
       "Anhänger",
       "Lader",
@@ -93,6 +94,7 @@ export default class HorizontalTimelineContent extends React.Component {
             linePadding={state.linePadding}
             maxEventPadding={state.maxEventPadding}
             minEventPadding={state.minEventPadding}
+            unitPadding={state.unitPadding}
             slidingMotion={{
               stiffness: state.slidingMotionStiffness,
               damping: state.slidingMotionDamping
