@@ -83,6 +83,7 @@ const HorizontalTimelineConfigurator = (props) => {
       <Container label='Padding between events'>
         <NumberIn config='minEventPadding' label='Minimum' max={props.maxEventPadding} min={20} {...props} />
         <NumberIn config='maxEventPadding' label='Maximum' min={props.minEventPadding} {...props} />
+        <NumberIn config='unitPadding' label='Unit' max={props.minEventPadding} min={10} {...props} />
       </Container>
 
       <Container label='Endings'>
@@ -125,6 +126,7 @@ HorizontalTimelineConfigurator.propTypes = {
   labelWidth: PropTypes.number.isRequired,
   maxEventPadding: PropTypes.number.isRequired,
   minEventPadding: PropTypes.number.isRequired,
+  unitPadding: PropTypes.number.isRequired,
   setConfig: PropTypes.func.isRequired,
   slidingMotionStiffness: PropTypes.number.isRequired,
   slidingMotionDamping: PropTypes.number.isRequired,
