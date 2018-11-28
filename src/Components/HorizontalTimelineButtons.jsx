@@ -77,6 +77,9 @@ const HorizontalTimelineButtons = (props) => {
     buttonStyles.link(props.styles),
   ];
 
+  const LeftIcon = props.leftIcon;
+  const RightIcon = props.rightIcon;
+
   return (
     <ul className="buttons">
       <li
@@ -89,7 +92,7 @@ const HorizontalTimelineButtons = (props) => {
           { [Constants.LEFT]: 0 }
         ]}
       >
-        <FaAngleLeft
+        <LeftIcon
           style={buttonStyles.icon(props.styles, buttonBackEnabled)}
         />
       </li>
@@ -103,7 +106,7 @@ const HorizontalTimelineButtons = (props) => {
           { [Constants.RIGHT]: 0 }
         ]}
       >
-        <FaAngleRight
+        <RightIcon
           style={buttonStyles.icon(props.styles, buttonForwardEnabled)}
         />
       </li>
@@ -111,6 +114,10 @@ const HorizontalTimelineButtons = (props) => {
   );
 }
 
+HorizontalTimelineButtons.defaultProps = {
+  leftIcon: props => <FaAngleLeft style={props.style} />,
+  rightIcon: props => <FaAngleRight style={props.style} />,
+};
 
 // Expected propteries
 HorizontalTimelineButtons.propTypes = {
@@ -121,7 +128,9 @@ HorizontalTimelineButtons.propTypes = {
   // The user passed styles (has fields like foreground, background color etc.)
   styles: PropTypes.object,
   // The maximum position that the timeline component can acuire, (on initial load will be null)
-  maxPosition: PropTypes.number
+  maxPosition: PropTypes.number,
+  leftIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  rightIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 };
 
 // Wrapping the buttons with Radium (so we get all the styling goodness)
