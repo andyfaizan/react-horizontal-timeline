@@ -231,6 +231,8 @@ class EventsBar extends React.Component {
             position={this.state.position}
             styles={this.props.styles}
             updateSlide={this.updateSlide}
+            leftIcon={this.props.leftIcon}
+            rightIcon={this.props.rightIcon}
           />
       </div>
     );
