@@ -62,7 +62,7 @@ const dots = {
  */
 class TimelineDot extends React.Component {
   __getDotStyles__ = (dotType, key) => {
-    if (!this.props.label && dotType !== "present") {
+    if (dotType === "intermediate") {
       return [
         dots.base,
         { left: this.props.labelWidth / 2 - dots.base.width / 2 },
@@ -91,16 +91,20 @@ class TimelineDot extends React.Component {
 
   render() {
     let dotType = "future";
-    if (this.props.index < this.props.selected) {
-      dotType = "past";
-    } else if (this.props.index === this.props.selected) {
-      dotType = "present";
+    if (!this.props.label) {
+      dotType = "intermediate";
+    } else {
+      if (this.props.index < this.props.selected) {
+        dotType = "past";
+      } else if (this.props.index === this.props.selected) {
+        dotType = "present";
+      }
     }
 
     return (
       <li
-        key={this.props.date}
-        id={`timeline-dot-${this.props.date}`}
+        key={dotType}
+        id={`timeline-dot-${dotType}`}
         className={`${dotType} dot-label`}
         onClick={
           this.props.label && (() => this.props.onClick(this.props.index))
@@ -118,6 +122,7 @@ class TimelineDot extends React.Component {
         {this.props.label}
         <span
           key="dot-dot"
+          className={`${dotType}-dot`}
           style={this.__getDotStyles__(dotType, this.props.index)}
         />
       </li>
