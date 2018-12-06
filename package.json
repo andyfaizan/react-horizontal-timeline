@@ -1,6 +1,6 @@
 {
   "name": "react-horizontal-catalog-stepper",
-  "version": "0.0.8-0",
+  "version": "0.0.7-beta",
   "description": "A horizontal stepper component for a catalog made using react",
   "main": "./dist/react-horizontal-timeline.js",
   "scripts": {
