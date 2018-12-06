@@ -80,6 +80,8 @@ const HorizontalTimelineButtons = (props) => {
   const LeftIcon = props.leftIcon;
   const RightIcon = props.rightIcon;
 
+  console.log(typeof(LeftIcon));
+
   return (
     <ul className="buttons">
       <li
@@ -129,8 +131,8 @@ HorizontalTimelineButtons.propTypes = {
   styles: PropTypes.object,
   // The maximum position that the timeline component can acuire, (on initial load will be null)
   maxPosition: PropTypes.number,
-  leftIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  rightIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  leftIcon: PropTypes.func,
+  rightIcon: PropTypes.func,
 };
 
 // Wrapping the buttons with Radium (so we get all the styling goodness)
