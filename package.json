@@ -30,6 +30,7 @@
   "homepage": "https://github.com/andyfaizan/react-horizontal-timeline",
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.1.0",
+    "@svgr/webpack": "^4.1.0",
     "color": "^3.0.0",
     "prop-types": "^15.6.0",
     "radium": "^0.25.0",
