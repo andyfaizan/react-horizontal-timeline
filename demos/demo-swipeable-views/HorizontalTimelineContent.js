@@ -6,7 +6,7 @@ import HorizontalTimeline from "../../src/Components/HorizontalTimeline";
 import HorizontalTimelineConfigurator from "./HorizontalTimelineConfigurator";
 
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
-
+import book from "./book.svg";
 export default class HorizontalTimelineContent extends React.Component {
   constructor(props) {
     super(props);
@@ -110,8 +110,8 @@ export default class HorizontalTimelineContent extends React.Component {
             labels={labels}
             isOpenEnding={state.isOpenEnding}
             isOpenBeginning={state.isOpenBeginning}
-            leftIcon={FaAngleDoubleLeft}
-            rightIcon={FaAngleDoubleRight}
+            leftIcon={book}
+            rightIcon={book}
           />
         </div>
         <div className="text-center">
