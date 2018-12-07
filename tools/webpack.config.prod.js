@@ -15,10 +15,6 @@ const rules = [
     test: /\.jsx?$/,
     use: ["babel-loader"],
     include: sourcePath
-  },
-  {
-    test: /\.svg$/,
-    use: ["@svgr/webpack"]
   }
 ];
 

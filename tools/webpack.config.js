@@ -55,8 +55,14 @@ const rules = [
     ]
   },
   {
-    test: /\.svg$/,
-    use: ["@svgr/webpack"]
+    test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+    // loader: 'url?limit=10000&mimetype=image/svg+xml'
+    use: [
+      {
+        loader: "url-loader",
+        options: { limit: 10000, mimetype: "image/svg+xml" }
+      }
+    ]
   },
   {
     test: /\.html$/,
