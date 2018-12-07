@@ -60,8 +60,7 @@ const getPath = (name, props) => {
 
 const SVG = ({
   name = "",
-  style = {},
-  fill = "#000",
+  style = { fill: "#000" },
   width = "100%",
   className = "",
   height = "100%",
@@ -76,7 +75,7 @@ const SVG = ({
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
   >
-    {getPath(name, { fill })}
+    {getPath(name, { fill: style.fill })}
   </svg>
 );
 

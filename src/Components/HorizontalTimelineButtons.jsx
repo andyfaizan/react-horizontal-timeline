@@ -38,13 +38,13 @@ const buttonStyles = {
     left: 0,
     top: "50%",
     bottom: "auto",
-    transform: "translateY(-50%)",
+    transform: "translate(25%,-30%)",
     height: 20,
     width: 29,
     overflow: "hidden",
     textIndent: "100%",
     whiteSpace: "nowrap",
-    fill: active ? styles.foreground : styles.outline
+    fill: active ? styles.svgFill : styles.outline
   }),
   inactive: styles => ({
     color: styles.outline,
@@ -89,12 +89,9 @@ const HorizontalTimelineButtons = props => {
         ]}
       >
         <SVG
-          fill={props.svgStyle.fill || "#49c"}
           width={100}
           name="left"
-          style={
-            props.svgStyle || buttonStyles.icon(props.styles, buttonBackEnabled)
-          }
+          style={buttonStyles.icon(props.styles, buttonBackEnabled)}
         />
       </li>
       <li
@@ -112,23 +109,14 @@ const HorizontalTimelineButtons = props => {
         ]}
       >
         <SVG
-          fill={props.svgStyle.fill || "#49c"}
           width={100}
           name="right"
-          style={
-            props.svgStyle ||
-            buttonStyles.icon(props.styles, buttonForwardEnabled)
-          }
+          style={buttonStyles.icon(props.styles, buttonForwardEnabled)}
         />
       </li>
     </ul>
   );
 };
-
-// HorizontalTimelineButtons.defaultProps = {
-//   leftIcon: props => <FaAngleLeft style={props.style} />,
-//   rightIcon: props => <FaAngleRight style={props.style} />,
-// };
 
 // Expected propteries
 HorizontalTimelineButtons.propTypes = {
@@ -139,7 +127,7 @@ HorizontalTimelineButtons.propTypes = {
   // The user passed styles (has fields like foreground, background color etc.)
   styles: PropTypes.object,
   // The maximum position that the timeline component can acuire, (on initial load will be null)
-  maxPosition: PropTypes.number,
+  maxPosition: PropTypes.number
 };
 
 // Wrapping the buttons with Radium (so we get all the styling goodness)
