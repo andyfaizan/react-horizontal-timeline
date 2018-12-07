@@ -5,8 +5,6 @@ import SwipeableViews from "react-swipeable-views";
 import HorizontalTimeline from "../../src/Components/HorizontalTimeline";
 import HorizontalTimelineConfigurator from "./HorizontalTimelineConfigurator";
 
-import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
-import book from "./book.svg";
 export default class HorizontalTimelineContent extends React.Component {
   constructor(props) {
     super(props);
@@ -27,6 +25,7 @@ export default class HorizontalTimelineContent extends React.Component {
       slidingMotionDamping: 25,
       stylesBackground: "#f8f8f8",
       stylesForeground: "#7b9d6f",
+      stylesSVGFill: "#7b9d6f",
       stylesOutline: "#dfdfdf",
       isTouchEnabled: true,
       isKeyboardEnabled: true,
@@ -104,14 +103,13 @@ export default class HorizontalTimelineContent extends React.Component {
             styles={{
               background: state.stylesBackground,
               foreground: state.stylesForeground,
-              outline: state.stylesOutline
+              outline: state.stylesOutline,
+              svgFill: state.stylesSVGFill
             }}
             values={counts}
             labels={labels}
             isOpenEnding={state.isOpenEnding}
             isOpenBeginning={state.isOpenBeginning}
-            leftIcon={book}
-            rightIcon={book}
           />
         </div>
         <div className="text-center">
