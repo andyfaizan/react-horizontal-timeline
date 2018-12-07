@@ -89,8 +89,6 @@ class HorizontalTimeline extends React.Component {
         fillingMotion={props.fillingMotion}
         barPaddingRight={barPaddingRight}
         barPaddingLeft={barPaddingLeft}
-        leftIcon={props.leftIcon}
-        rightIcon={props.rightIcon}
       />
     );
   }
