@@ -48,7 +48,7 @@ const buttonStyles = {
   }),
   iconLeft: (styles, active) => ({
     position: styles.position || "absolute",
-    left: styles.left || "15%",
+    left: styles.left || "11%",
     top: styles.top || "40%",
     bottom: styles.bottom || "auto",
     transform: styles.transform || "translate(25%,-30%)",
