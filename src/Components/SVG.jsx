@@ -4,24 +4,13 @@ const getPath = (name, props) => {
   switch (name) {
     case "left":
       return (
-        <g
-          id="Produktkatalog"
-          stroke="none"
-          strokeWidth="1"
-          fill="none"
-          fillRule="evenodd"
-        >
-          <g
-            id="Produktkatalog_desktop"
-            transform="translate(-94.000000, -63.000000)"
-            fill={props.fill}
-          >
-            <g id="Group-6" transform="translate(64.000000, 24.000000)">
-              <g id="Group-5" transform="translate(0.000000, 33.000000)">
-                <polygon
-                  id="Fill-1"
-                  transform="translate(36.042454, 14.711015) rotate(-180.000000) translate(-36.042454, -14.711015) "
-                  points="33.0527231 23.0187077 41.3604154 14.7110154 33.0527231 6.40332308 30.7244923 8.73363077 36.7039538 14.7110154 30.7244923 20.6987846"
+        <g id="Ebene_2" data-name="Ebene 2">
+          <g id="Ebene_1-2" data-name="Ebene 1">
+            <g id="Ebene_2-2" data-name="Ebene 2">
+              <g id="Ebene_1-2-2" data-name="Ebene 1-2">
+                <path
+                  d="M29.68,42.51,11.22,24.06,29.68,5.62,24.06,0,0,24.06,24.06,48.13Z"
+                  style={{ fill: props.fill }}
                 />
               </g>
             </g>
@@ -30,24 +19,18 @@ const getPath = (name, props) => {
       );
     case "right":
       return (
-        <g
-          id="Produktkatalog"
-          stroke="none"
-          strokeWidth="1"
-          fill="none"
-          fillRule="evenodd"
-        >
-          <g
-            id="Produktkatalog_desktop_smallest"
-            transform="translate(-964.000000, -62.000000)"
-            fill={props.fill}
-          >
-            <g id="Group-7" transform="translate(13.000000, 24.000000)">
-              <g id="Group-4" transform="translate(943.000000, 33.000000)">
-                <polygon
-                  id="Fill-1"
-                  points="10.3282308 21.6153846 18.6359231 13.3076923 10.3282308 5 8 7.33030769 13.9794615 13.3076923 8 19.2954615"
-                />
+        <g id="Layer_2" data-name="Layer 2">
+          <g id="Layer_1-2" data-name="Layer 1">
+            <g id="Ebene_2" data-name="Ebene 2">
+              <g id="Ebene_1-2" data-name="Ebene 1-2">
+                <g id="Ebene_2-2" data-name="Ebene 2-2">
+                  <g id="Ebene_1-2-2" data-name="Ebene 1-2-2">
+                    <path
+                      d="M5.62,48.13,29.68,24.06,5.62,0,0,5.62,18.46,24.06,0,42.51Z"
+                      style={{ fill: props.fill }}
+                    />
+                  </g>
+                </g>
               </g>
             </g>
           </g>
@@ -64,7 +47,7 @@ const SVG = ({
   width = "100%",
   className = "",
   height = "100%",
-  viewBox = "0 0 32 32"
+  viewBox = "0 0 30 48"
 }) => (
   <svg
     width={width}

@@ -84,6 +84,8 @@ class HorizontalTimeline extends React.Component {
         visibleWidth={visibleWidth}
         index={props.index}
         styles={props.styles}
+        leftIconStyles={props.leftIconStyles}
+        rightIconStyles={props.rightIconstyles}
         indexClick={props.indexClick}
         labelWidth={props.labelWidth}
         fillingMotion={props.fillingMotion}

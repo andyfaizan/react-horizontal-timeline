@@ -106,6 +106,34 @@ export default class HorizontalTimelineContent extends React.Component {
               outline: state.stylesOutline,
               svgFill: state.stylesSVGFill
             }}
+            leftIconStyles={{
+              position: "absolute",
+              left: "11%",
+              top: "40%",
+              bottom: "auto",
+              transform: "translate(25%,-30%)",
+              height: 10,
+              width: 15,
+              overflow: "hidden",
+              textIndent: "100%",
+              whiteSpace: "nowrap",
+              outline: state.stylesOutline,
+              svgFill: state.stylesSVGFill
+            }}
+            rightIconStyles={{
+              position: "absolute",
+              left: "15%",
+              top: "40%",
+              bottom: "auto",
+              transform: "translate(25%,-30%)",
+              height: 10,
+              width: 15,
+              overflow: "hidden",
+              textIndent: "100%",
+              whiteSpace: "nowrap",
+              outline: state.stylesOutline,
+              svgFill: state.stylesSVGFill
+            }}
             values={counts}
             labels={labels}
             isOpenEnding={state.isOpenEnding}
