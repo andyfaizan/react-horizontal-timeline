@@ -34,16 +34,16 @@ const buttonStyles = {
     transition: "border-color 0.3s"
   }),
   icon: (styles, active) => ({
-    position: "absolute",
-    left: 0,
-    top: "50%",
-    bottom: "auto",
-    transform: "translate(25%,-30%)",
-    height: 20,
-    width: 29,
-    overflow: "hidden",
-    textIndent: "100%",
-    whiteSpace: "nowrap",
+    position: styles.position || "absolute",
+    left: styles.left || 0,
+    top: styles.top || "50%",
+    bottom: styles.bottom || "auto",
+    transform: styles.transform || "translate(25%,-30%)",
+    height: styles.height || 20,
+    width: styles.width || 29,
+    overflow: styles.overflow || "hidden",
+    textIndent: styles.textIndent || "100%",
+    whiteSpace: styles.whiteSpace || "nowrap",
     fill: active ? styles.svgFill : styles.outline
   }),
   inactive: styles => ({
