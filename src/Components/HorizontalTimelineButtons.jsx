@@ -33,14 +33,27 @@ const buttonStyles = {
     whiteSpace: "nowrap",
     transition: "border-color 0.3s"
   }),
-  icon: (styles, active) => ({
+  iconRight: (styles, active) => ({
     position: styles.position || "absolute",
-    left: styles.left || 0,
-    top: styles.top || "50%",
+    left: styles.left || "15%",
+    top: styles.top || "40%",
     bottom: styles.bottom || "auto",
     transform: styles.transform || "translate(25%,-30%)",
-    height: styles.height || 20,
-    width: styles.width || 29,
+    height: styles.height || 10,
+    width: styles.width || 15,
+    overflow: styles.overflow || "hidden",
+    textIndent: styles.textIndent || "100%",
+    whiteSpace: styles.whiteSpace || "nowrap",
+    fill: active ? styles.svgFill : styles.outline
+  }),
+  iconLeft: (styles, active) => ({
+    position: styles.position || "absolute",
+    left: styles.left || "11%",
+    top: styles.top || "40%",
+    bottom: styles.bottom || "auto",
+    transform: styles.transform || "translate(25%,-30%)",
+    height: styles.height || 10,
+    width: styles.width || 15,
     overflow: styles.overflow || "hidden",
     textIndent: styles.textIndent || "100%",
     whiteSpace: styles.whiteSpace || "nowrap",
@@ -91,7 +104,10 @@ const HorizontalTimelineButtons = props => {
         <SVG
           width={100}
           name="left"
-          style={buttonStyles.icon(props.styles, buttonBackEnabled)}
+          style={buttonStyles.iconLeft(
+            props.leftIconStyles || props.styles,
+            buttonBackEnabled
+          )}
         />
       </li>
       <li
@@ -111,7 +127,10 @@ const HorizontalTimelineButtons = props => {
         <SVG
           width={100}
           name="right"
-          style={buttonStyles.icon(props.styles, buttonForwardEnabled)}
+          style={buttonStyles.iconRight(
+            props.rightIconStyles || props.styles,
+            buttonForwardEnabled
+          )}
         />
       </li>
     </ul>
